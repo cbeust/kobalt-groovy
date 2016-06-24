@@ -13,16 +13,16 @@ import java.net.URLClassLoader
 
 @Singleton
 class GroovyPlugin @Inject constructor(val groovyCompiler: GroovyCompiler) : ICompilerContributor {
-    override fun affinity(project: Project, context: KobaltContext) =
-            if (hasSourceFiles(project)) 1 else 0
-
     // ICompilerContributor
-    val compiler = CompilerDescription(GroovyCompiler.SUFFIXES, "groovy", groovyCompiler)
+    override fun compilersFor(project: Project, context: KobaltContext)
+        = listOf(CompilerDescription(GroovyCompiler.SUFFIXES, "groovy", groovyCompiler))
 
-    override fun compilersFor(project: Project, context: KobaltContext) = listOf(compiler)
+    // IProjectAffinity
+    override fun affinity(project: Project, context: KobaltContext) =
+        if (hasSourceFiles(project)) 1 else 0
 
     private fun hasSourceFiles(project: Project)
-        = KFiles.findSourceFiles(project.directory, project.sourceDirectories, GroovyCompiler.SUFFIXES).size > 0
+        = KFiles.findSourceFiles(project.directory, project.sourceDirectories, GroovyCompiler.SUFFIXES).any()
 }
 
 class GroovyCompiler @Inject constructor(dependencyManager: DependencyManager) : ICompiler {

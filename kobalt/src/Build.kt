@@ -1,7 +1,7 @@
-import com.beust.kobalt.*
-import com.beust.kobalt.plugin.packaging.*
-import com.beust.kobalt.plugin.kotlin.*
-import com.beust.kobalt.plugin.publish.*
+
+import com.beust.kobalt.plugin.packaging.assemble
+import com.beust.kobalt.plugin.publish.bintray
+import com.beust.kobalt.project
 
 val project = project {
     name = "kobalt-groovy"
@@ -10,7 +10,7 @@ val project = project {
     version = "0.1"
 
     dependencies {
-        compile("com.beust:kobalt-plugin-api:0.822")
+        compile("com.beust:kobalt-plugin-api:0.823")
     }
 
     assemble {
