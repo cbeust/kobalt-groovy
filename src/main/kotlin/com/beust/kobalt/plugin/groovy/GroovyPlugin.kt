@@ -11,6 +11,13 @@ import com.google.inject.Singleton
 import java.io.File
 import java.net.URLClassLoader
 
+/**
+ * The Kobalt Groovy plug-in downloads (if necessary) the Groovy jar file from Maven and then invokes
+ * the compiler entry point with reflection in the same process.
+ *
+ * @author Cedric Beust <cedric@beust.com>
+ * @since 06/24/2014
+ */
 @Singleton
 class GroovyPlugin @Inject constructor(val groovyCompiler: GroovyCompiler) : ICompilerContributor {
     // ICompilerContributor
