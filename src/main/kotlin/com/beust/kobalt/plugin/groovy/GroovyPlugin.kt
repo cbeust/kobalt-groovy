@@ -18,8 +18,8 @@ class GroovyPlugin @Inject constructor(val groovyCompiler: GroovyCompiler) : ICo
         = listOf(CompilerDescription(GroovyCompiler.SUFFIXES, "groovy", groovyCompiler))
 
     // IProjectAffinity
-    override fun affinity(project: Project, context: KobaltContext) =
-        if (hasSourceFiles(project)) 1 else 0
+    override fun affinity(project: Project, context: KobaltContext)
+        = if (hasSourceFiles(project)) 1 else 0
 
     private fun hasSourceFiles(project: Project)
         = KFiles.findSourceFiles(project.directory, project.sourceDirectories, GroovyCompiler.SUFFIXES).any()
