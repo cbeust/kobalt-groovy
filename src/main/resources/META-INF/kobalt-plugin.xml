@@ -1,0 +1,6 @@
+<kobalt-plugin>
+    <name>kobalt-groovy</name>
+    <plugin-actors>
+        <class-name>com.beust.kobalt.plugin.groovy.GroovyPlugin</class-name>
+    </plugin-actors>
+</kobalt-plugin>
