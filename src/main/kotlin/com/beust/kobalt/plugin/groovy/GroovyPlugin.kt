@@ -22,7 +22,7 @@ import java.net.URLClassLoader
 class GroovyPlugin @Inject constructor(val groovyCompiler: GroovyCompiler) : ICompilerContributor {
     // ICompilerContributor
     override fun compilersFor(project: Project, context: KobaltContext)
-        = listOf(CompilerDescription(GroovyCompiler.SUFFIXES, "groovy", groovyCompiler))
+        = listOf(CompilerDescription("Groovy", "groovy", GroovyCompiler.SUFFIXES, groovyCompiler))
 
     // IProjectAffinity
     override fun affinity(project: Project, context: KobaltContext)
