@@ -7,10 +7,10 @@ val project = project {
     name = "kobalt-groovy"
     group = "com.beust"
     artifactId = name
-    version = "0.2"
+    version = "0.3"
 
     dependencies {
-        compile("com.beust:kobalt-plugin-api:0.832")
+        compile("com.beust:kobalt-plugin-api:")
     }
 
     assemble {
